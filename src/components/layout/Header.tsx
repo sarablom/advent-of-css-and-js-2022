@@ -5,29 +5,24 @@ import styled from "styled-components";
 export const Header: FC = () => {
 
 	return (
-		<PageWrapper>
+		<header>
 			<NavWrapper>
 				<Link href="/">Go back</Link>
 			</NavWrapper>
-		</PageWrapper>
+		</header>
 	);
 };
-const PageWrapper = styled.header`
-	display: flex;
-	justify-content: space-between;
-`;
 
 const NavWrapper = styled.nav`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 5rem;
-	gap: 1rem;
-
 	a {
-		text-decoration: none;
-		color: var(--color-blackish);
 		cursor: pointer;
+		padding: 8px 14px;
+		background: var(--color-blackish);
+		color: var(--color-whiteish);
+		text-decoration: none;
+		position: absolute;
+		top: 0;
+		left: 0;
 
 		&:hover {
 			color: var(--color-whiteish);
