@@ -28,7 +28,7 @@ export const Home: NextPage = () => {
                     <button>13</button>
                     <button>14</button>
                     <button>15</button>
-                    <button>16</button>
+                    <Link href="/sixteen">16</Link>
                     <button>17</button>
                     <button>18</button>
                     <button>19</button>
