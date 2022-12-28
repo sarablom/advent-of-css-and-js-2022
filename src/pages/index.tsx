@@ -1,46 +1,88 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import styled from "styled-components";
 
 export const Home: NextPage = () => {
-    return (
-        <div>
-            <Head>
-                <title>Advent of CSS and JS 2022</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-            <main>
-                <h1>Welcome to Advent of CSS and JS 2022</h1>
-                <h2>By Sara Blom</h2>
-                <div className="button-wrapper">
-                    <button>1</button>
-                    <Link href="/two">Two</Link>
-                    <button>3</button>
-                    <button>4</button>
-                    <button>5</button>
-                    <button>6</button>
-                    <button>7</button>
-                    <button>8</button>
-                    <button>9</button>
-                    <button>10</button>
-                    <button>11</button>
-                    <button>12</button>
-                    <button>13</button>
-                    <button>14</button>
-                    <button>15</button>
-                    <Link href="/sixteen">16</Link>
-                    <button>17</button>
-                    <button>18</button>
-                    <button>19</button>
-                    <button>20</button>
-                    <button>21</button>
-                    <button>22</button>
-                    <button>23</button>
-                    <button>24</button>
-                </div>
-            </main>
-        </div>
-    );
+	return (
+		<div>
+			<Head>
+				<title>Advent of CSS and JS 2022</title>
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
+			<MainWrapper>
+				<h1>Welcome to Advent of CSS and JS 2022</h1>
+				<h2>By Sara Blom</h2>
+				<LinkWrapper>
+					{[
+						"one",
+						"two",
+						"three",
+						"four",
+						"five",
+						"six",
+						"seven",
+						"eight",
+						"nine",
+						"ten",
+						"eleven",
+						"twelve",
+						"thirteen",
+						"fourteen",
+						"fifteen",
+						"sixteen",
+						"seventeen",
+						"eighteen",
+						"ninteen",
+						"twenty",
+						"twentyone",
+						"twentytwo",
+						"twentythree",
+						"twentyfour",
+					].map(day => (
+						<li>
+							<Link href={`/${day}`}>{day}</Link>
+						</li>
+					))}
+				</LinkWrapper>
+			</MainWrapper>
+		</div>
+	);
 };
 
 export default Home;
+
+const MainWrapper = styled.main`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 32px;
+	align-items: center;
+	width: 100%;
+
+	h1 {
+		margin-top: 32px;
+	}
+`;
+
+const LinkWrapper = styled.ol`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 16px;
+	width: min(100%, 700px);
+	list-style-type: none;
+
+	li {
+		background: var(--color-primary);
+		color: var(--color-whiteish);
+		border-radius: 4px;
+		padding: 8px 12px;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+`;
