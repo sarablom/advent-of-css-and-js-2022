@@ -6,10 +6,20 @@ import { Background } from "../components/DayTwo/Background";
 import { Lato } from "@next/font/google";
 import { CardContainer } from "../components/DayTwo/CardContainer";
 import Star from "../components/DaySixteen/Star";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Sixteen: NextPage = () => {
-	const [fillColor, setFillColor] = useState<"#FFD200" | "#808080">("#808080");
+	const [hoverIndex, setHoverIndex] = useState(0);
+	const starRef = useRef<null | SVGSVGElement>(null);
+
+	const handleOnMouseEnter = (index: number) => {
+		setHoverIndex(index);
+	};
+
+	const handleOnMouseLeave = () => {
+		setHoverIndex(0);
+	};
+
 	return (
 		<>
 			<Head>
@@ -18,26 +28,15 @@ const Sixteen: NextPage = () => {
 			</Head>
 
 			<Wrapper>
-				<Star
-					onMouseEnter={() => setFillColor("#FFD200")}
-					fillColor={fillColor}
-				/>
-				<Star
-					onMouseEnter={() => setFillColor("#FFD200")}
-					fillColor={fillColor}
-				/>
-				<Star
-					onMouseEnter={() => setFillColor("#FFD200")}
-					fillColor={fillColor}
-				/>
-				<Star
-					onMouseEnter={() => setFillColor("#FFD200")}
-					fillColor={fillColor}
-				/>
-				<Star
-					onMouseEnter={() => setFillColor("#FFD200")}
-					fillColor={fillColor}
-				/>
+				{[1, 2, 3, 4, 5].map(number => (
+					<Star
+						key={number}
+						ref={starRef}
+						onMouseEnter={() => handleOnMouseEnter(number)}
+						onMouseLeave={handleOnMouseLeave}
+						fillColor={number <= hoverIndex ? "#FFD200" : "#808080"}
+					/>
+				))}
 			</Wrapper>
 		</>
 	);
