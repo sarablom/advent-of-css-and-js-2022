@@ -1,6 +1,5 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import styled from "styled-components";
 import { Background } from "../components/DayTwo/Background";
 import { Lato } from "@next/font/google";
